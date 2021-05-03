@@ -68,5 +68,6 @@ public class Main_Person_Stack {
         stack1.pop();
         stack1.pop();
         System.out.println("--");
+        System.out.println("test");
     }
 }
