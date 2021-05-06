@@ -1,11 +1,17 @@
-
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class Immutable {
 
     static void changeIntegerValue(Integer z) {
         System.out.println("z=" + z);
-        z = z + 1;
+        z = z +1;
         System.out.println("z=" + z);
+    }
+
+    static void changeStringValue(String s) {
+        System.out.println(s);
+        s = new String("B");
+        System.out.println(s);
     }
 
     public static void main(String[] args) {
@@ -13,6 +19,11 @@ public class Immutable {
        System.out.println(x);
        changeIntegerValue(x);
        System.out.println(x);
+       
+       String y = new String("A");
+       System.out.println(y);
+       changeStringValue(y);
+       System.out.println(y);
        
        AtomicInteger a = new AtomicInteger();
        a.set(7); 

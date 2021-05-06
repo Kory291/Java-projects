@@ -12,19 +12,21 @@ class Stack {
     }
 
     String push(String s) {
-        //if(current < (objects.length - 1)) {
-           // current++;
-            objects[current + 1] = s;
-            return objects[current];
+        if(current < objects.length) {
+            
+            objects[current] = s;
+            current++;
+            return s;
         }
-        //else return null;
-    //}
+        return null;
+    }
 
    String pop() {
-        String save = objects[current];
-        objects[current] = null;
-        if(current > 1)current--;
-        return save;
+        if(current > 0) {
+            current--;
+            return objects[current];
+        }
+       return null;
     }
 }
 

@@ -1,7 +1,7 @@
 class RZ {
 
-    int zaehler;
-    int nenner;
+    private int zaehler;
+    private int nenner;
 
     RZ(int zaehler, int nenner) {
         this.nenner = Math.abs(nenner);
@@ -10,7 +10,7 @@ class RZ {
     }
 
     void kuerzen() {
-        //moderner euklidischer Algorithmus zur Bestimmung des GGT
+        //moderner euklidischer Algorithmus zur Bestimmung des ggT
         int ggT = euclid(this.zaehler, this.nenner);
         this.zaehler = zaehler / ggT;
         this.nenner = nenner / ggT; 
@@ -26,15 +26,29 @@ class RZ {
     }
 
     void addiere(RZ andererBruch) {
-        this.zaehler =  (this.zaehler * andererBruch.nenner) + (andererBruch.zaehler * this.nenner);
-        this.nenner = this.nenner * andererBruch.nenner;
+        this.zaehler =  (this.getZaehler() * andererBruch.getNenner()) + (andererBruch.getZaehler() * this.getNenner());
+        this.nenner = this.nenner * andererBruch.getNenner();
         kuerzen();
     }
 
-    static RZ summe(RZ x, RZ y) {
+    public static RZ summe(RZ x, RZ y) {
         RZ z = new RZ((x.zaehler * y.nenner) + (y.zaehler * x.nenner), x.nenner * y.nenner);
         z.kuerzen();
         return z;
+    }
+
+    public static RZ summe2(RZ x, RZ y) {
+        RZ z = new RZ(x.getZaehler(), x.getNenner());
+        z.addiere(y);
+        return z;
+    }
+
+    public int getNenner() {
+        return this.nenner;
+    }
+
+    public int getZaehler() {
+        return this.zaehler;
     }
 }
 
@@ -46,7 +60,9 @@ public class rationaleZahlen {
         System.out.println("---");
         bruch1.addiere(new RZ(2, 1));
         System.out.println("---");
-        RZ bruch2 = bruch1.summe(new RZ(8,4), new RZ(2,1));
+        RZ bruch2 = RZ.summe(new RZ(8,4), new RZ(2,1));
+        System.out.println("---");
+        RZ bruch3 = RZ.summe2(new RZ(4, 16), new RZ(3, 6));
         System.out.println("---");
     }
 }

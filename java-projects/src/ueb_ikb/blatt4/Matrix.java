@@ -71,7 +71,7 @@ public class Matrix {
         System.out.println(Arrays.deepToString(e));
         
         int[][] f = {{1, 5, 9}, {3, 6, 2}};
-        int[][] g = {{1, 5, 9}, {3, 6, 22}};
+        int[][] g = {{1, 5, 9}, {3, 6, 2}};
         System.out.println(matrixGleich(f, g));
     }
 }
