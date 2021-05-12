@@ -18,62 +18,51 @@ class Wuerfel {
         return augenzahl;
     }
 
-    public String[] ausgabeInString() {
+    @Override
+    public String toString() {
         switch (augenzahl) {
             case 1:
-                String[] ausgabe1 = {
-                    "+---+",
-                    "|   |",
-                    "| * |",
-                    "|   |",
-                    "+---+"
-                };
-                return ausgabe1;
+                return 
+                "+---+\n" +
+                "|   |\n" +
+                "| * |\n" +
+                "|   |\n" +
+                "+---+";
             case 2:
-                String[] ausgabe2 = {
-                    "+---+",
-                    "|*  |",
-                    "|   |",
-                    "|  *|",
-                    "+---+"
-                };
-                return ausgabe2; 
+                return 
+                "+---+\n" +
+                "|*  |\n" +
+                "|   |\n" +
+                "|  *|\n" +
+                "+---+";
             case 3:
-                String[] ausgabe3 = {
-                    "+---+",
-                    "|  *|",
-                    "| * |",
-                    "|*  |",
-                    "+---+"
-                };
-                return ausgabe3;
+                return 
+                "+---+\n" +
+                "|  *|\n" +
+                "| * |\n" +
+                "|*  |\n" +
+                "+---+";
             case 4:
-                String[] ausgabe4 = {
-                    "+---+",
-                    "|* *|",
-                    "|   |",
-                    "|* *|",
-                    "+---+"
-                };
-                return ausgabe4;
+                return 
+                "+---+\n" +
+                "|* *|\n" +
+                "|   |\n" +
+                "|* *|\n" +
+                "+---+";
             case 5:
-                String[] ausgabe5 = {
-                    "+---+",
-                    "|* *|",
-                    "| * |",
-                    "|* *|",
-                    "+---+"
-                };
-                return ausgabe5;
+                return 
+                "+---+\n" +
+                "|* *|\n" +
+                "| * |\n" +
+                "|* *|\n" +
+                "+---+";
             case 6:
-                String[] ausgabe6 = {
-                    "+---+",
-                    "|* *|",
-                    "|* *|",
-                    "|* *|",
-                    "+---+"
-                };
-                return ausgabe6; 
+                return 
+                "+---+\n" + 
+                "|* *|\n" +
+                "|* *|\n" +
+                "|* *|\n" +
+                "+---+"; 
         }
         return null;
     }   
@@ -82,13 +71,11 @@ class Wuerfel {
 class Kniffel {
     private Wuerfel[] wuerfel = new Wuerfel[5];
     private int maxWuerfeAnzahl = 2;
-    private boolean[] beiseiteGelegt = new boolean[] {false, false, false, false, false,};
 
     Kniffel() {
         for(int i = 0; i < 5; i++) {
             wuerfel[i] = new Wuerfel();
         }
-        System.out.println("gewürfelt");
     }
 
     public int[] getAlleAugenzahlen() {
@@ -99,7 +86,13 @@ class Kniffel {
         return result;
     }
 
-    public void neuWuerfeln(int[] nochmalWuerfeln) {
+    public void spielzug() {
+        for(int i = 0; i < 2; i++) { 
+            neuWuerfeln(auswahlWegwerfen());   
+        }
+    } 
+
+    private void neuWuerfeln(int[] nochmalWuerfeln) {
         if(maxWuerfeAnzahl > 0) {
             for(int i = 0; i < nochmalWuerfeln.length; i++) {
                 wuerfel[nochmalWuerfeln[i] - 1] = new Wuerfel();
@@ -108,7 +101,7 @@ class Kniffel {
         }
     }
 
-    public int[] auswahlWegwerfen() {
+    private int[] auswahlWegwerfen() {
         Scanner sc = new Scanner(System.in);
         System.out.println("wie viele Würfel wollen sie nochmal werfen?");
         int k = sc.nextInt();
@@ -133,14 +126,15 @@ public class Wuerfel_Kniffel {
     public static void main(String[] args) {
         Kniffel kniffel1 = new Kniffel();
         System.out.println(Arrays.toString(kniffel1.getAlleAugenzahlen()));
-        int[] wegwerfen = kniffel1.auswahlWegwerfen();
-        kniffel1.neuWuerfeln(wegwerfen);
+        kniffel1.spielzug();
         System.out.println(Arrays.toString(kniffel1.getAlleAugenzahlen()));
+        /*
         int[] wegwerfen2 = kniffel1.auswahlWegwerfen();
         kniffel1.neuWuerfeln(wegwerfen2);
         System.out.println(Arrays.toString(kniffel1.getAlleAugenzahlen()));
         int[] wegwerfen3 = kniffel1.auswahlWegwerfen();
         kniffel1.neuWuerfeln(wegwerfen3);
         System.out.println(Arrays.toString(kniffel1.getAlleAugenzahlen()));
+        */
     }
 }
