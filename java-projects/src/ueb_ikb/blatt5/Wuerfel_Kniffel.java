@@ -120,6 +120,69 @@ class Kniffel {
         return false;
     }
 
+    //gibt mir die Anzah der Würfelaugen - das macht mir das Bestimmen der Punktzahl gefühlt einfacher
+    private int[] anzahlAugenzahlenSortiert() {
+        int[] anzahlAugenZahl = new int[6]; //Beim Index 0 wird die Häufigkeit der 1 gespeichert. Beim Index 1 für die 2 usw...
+        for(int i = 0; i < 6; i++) {
+            for(int k = 0; k < 5; k++)
+            if(wuerfel[k].getAugenzahl() == i + 1) {
+                anzahlAugenZahl[i]++;
+            }
+        }
+        return anzahlAugenZahl;
+    }
+
+    public int zugErgebnis() {
+        anzahlAugenzahlenSortiert();
+        return 0;
+    }
+
+    private int dreierPasch() {
+        int[] augenzahlen = anzahlAugenzahlenSortiert()
+        for(int i = 0; i < 6; i++) {
+            if(augenzahlen[i] == 3) return 17;
+        }
+        return 0;
+    }
+
+    //
+    private int viererPasch() {
+        int[] augenzahlen = anzahlAugenzahlenSortiert()
+        for(int i = 0; i < 6; i++) {
+            if(augenzahlen[i] == 4) return 24;
+        }
+        return 0;
+    }
+
+    //ist ein Kniffel, gibt 50 Punkte zurück
+    private int fuenferPasch() {
+        int[] augenzahlen = anzahlAugenzahlenSortiert();
+        for(int i = 0; i < 6; i++) {
+            if(augenzahlen[i] == 5) return 50;
+        }
+        return 0;
+    }
+
+    private int kleineStraße() {
+
+    }
+
+    private int großeStraße() {
+        int[] augenzahlen = anzahlAugenzahlenSortiert();
+        for(int i = 1; i < 5; i++) {
+            if(augenzahlen[i] != 1) return 0;
+        }
+        return 0;
+    }
+
+    private int[] untererBlock() {
+
+    }
+
+    private int[] obererBlock() {
+        
+    }
+
 }
 
 public class Wuerfel_Kniffel {
@@ -128,6 +191,7 @@ public class Wuerfel_Kniffel {
         System.out.println(Arrays.toString(kniffel1.getAlleAugenzahlen()));
         kniffel1.spielzug();
         System.out.println(Arrays.toString(kniffel1.getAlleAugenzahlen()));
+        kniffel1.zugErgebnis();
         /*
         int[] wegwerfen2 = kniffel1.auswahlWegwerfen();
         kniffel1.neuWuerfeln(wegwerfen2);

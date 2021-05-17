@@ -3,15 +3,16 @@ import java.util.Arrays;
 public class sortieren {
     static void sortArray (double[] zahlen) {
         double save;
-        for(int i = zahlen.length; i > 1; --i) {
+        for(int i = zahlen.length; i > 0; i--) {
             save = zahlen[i - 1];
-            for(int k = i; k < i - 1; ++k) {
-                if(zahlen[k] > zahlen[k +1]) {
+            for(int k = 0; k < i - 1; k++) {
+                if(zahlen[k] > zahlen[k + 1]) {
                     save = zahlen[k];
                     zahlen[k] = zahlen[k + 1];
                     zahlen[k + 1] = save;
                 }
             }
+            System.out.println("---");
         }
     }
 
