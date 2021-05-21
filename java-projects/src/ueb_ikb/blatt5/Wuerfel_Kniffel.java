@@ -20,7 +20,40 @@ class Wuerfel {
 
     @Override
     public String toString() {
-        switch (augenzahl) {
+        String[][] ergebnis = {
+            {"+---+\n" +
+            "|   |\n" +
+            "| * |\n" +
+            "|   |\n" +
+            "+---+"},
+            {"+---+\n" +
+            "|*  |\n" +
+            "|   |\n" +
+            "|  *|\n" +
+            "+---+"},
+            {"+---+\n" +
+            "|  *|\n" +
+            "| * |\n" +
+            "|*  |\n" +
+            "+---+"},
+            {"+---+\n" +
+            "|* *|\n" +
+            "|   |\n" +
+            "|* *|\n" +
+            "+---+"},
+            {"+---+\n" +
+            "|* *|\n" +
+            "| * |\n" +
+            "|* *|\n" +
+            "+---+"},
+            {"+---+\n" +
+            "|* *|\n" +
+            "|* *|\n" +
+            "|* *|\n" +
+            "+---+"},
+        };
+        return ergebnis[a-1];
+        /*switch (augenzahl) {
             case 1:
                 return 
                 "+---+\n" +
@@ -65,14 +98,16 @@ class Wuerfel {
                 "+---+"; 
         }
         return null;
+        */
     }   
 }
 
 class Kniffel {
-    private Wuerfel[] wuerfel = new Wuerfel[5];
+    private Wuerfel[] wuerfel;
     private int maxWuerfeAnzahl = 2;
 
     Kniffel() {
+        wuerfel = new Wuerfel[5];
         for(int i = 0; i < 5; i++) {
             wuerfel[i] = new Wuerfel();
         }
@@ -164,15 +199,17 @@ class Kniffel {
     }
 
     private int kleineStraße() {
-
+        int[] augenzahlen = anzahlAugenzahlenSortiert();
+        for()
+        return 0;
     }
 
     private int großeStraße() {
         int[] augenzahlen = anzahlAugenzahlenSortiert();
-        for(int i = 1; i < 5; i++) {
+        for(int i = 0; i < 5; i++) {
             if(augenzahlen[i] != 1) return 0;
         }
-        return 0;
+        return 40;
     }
 
     private int[] untererBlock() {

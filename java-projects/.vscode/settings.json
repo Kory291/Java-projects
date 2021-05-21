@@ -1,9 +1,6 @@
 {
     "java.project.sourcePaths": [
-<<<<<<< HEAD
-        "src/pol",
-=======
->>>>>>> 7ad13dab48c5a2472a4bbc1d62b03ab480fc31d3
-        "src/ueb_ikb/blatt4"
+        "src/ueb_ikb/blatt4",
+        "src/pol/pol"
     ]
 }
