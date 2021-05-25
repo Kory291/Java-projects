@@ -12,14 +12,14 @@ public class FrageMC extends Frage {
     int getMaxPunkte() {
         int summePositiv = 0;
         for (int i = 0; i <punkteProOption.length; i++) {
-            if(punkteOption[i] > 0) {
-                summePositiv += punkteOption[i];
+            if(punkteProOption[i] > 0) {
+                summePositiv += punkteProOption[i];
             }
         }
     }
 
     @Override
-    int getPunktzahl(Stirng teilnehmerLoesung) {
+    int getPunktzahl(String teilnehmerLoesung) {
        int result = 0;
        for(int i = 0; i <punkteProOption.length; i++) {
             if(teilnehmerLoesung.contains(Character.toString('A'+ i ))) {

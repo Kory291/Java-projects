@@ -5,8 +5,8 @@ public class Spielfeld {
 
     public static void spielfeldAnzeigen() {
         for(int x = 0; x < 15; x++) {
-            if(x % 4 != 0) System.out.printf("")
-            System.out.printf("%d")
+            if(x % 4 != 0) System.out.printf("");
+            System.out.printf("%d");
         }
     }
 

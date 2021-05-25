@@ -15,6 +15,6 @@ public class FrageFT extends Frage{
 
     @Override
     int getPunktzahl(String teilnehmerLoesung) {
-        return korreteLoesung.equalsIgnoreCase(teilnehmerLoesung.trim()) ? punktzahl : 0;
+        return korrekteLoesung.equalsIgnoreCase(teilnehmerLoesung.trim()) ? punktzahl : 0;
     }
 }
