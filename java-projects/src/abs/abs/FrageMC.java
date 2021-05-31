@@ -1,4 +1,6 @@
-public class FrageMC extends Frage {
+package abs;
+
+public class FrageMC extends Frage implements AutomatischeBewertung {
     String[] antwortOptionen;
     int[] punkteProOption;
 
@@ -19,7 +21,7 @@ public class FrageMC extends Frage {
     }
 
     @Override
-    int getPunktzahl(String teilnehmerLoesung) {
+    public int getPunktzahl(String teilnehmerLoesung) {
        int result = 0;
        for(int i = 0; i <punkteProOption.length; i++) {
             if(teilnehmerLoesung.contains(Character.toString('A'+ i ))) {

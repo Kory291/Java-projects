@@ -11,5 +11,4 @@ public abstract class Frage {
     }
 
     abstract int getMaxPunkte();
-    abstract int getPunktzahl(String teilnehmerLoesung);
 }

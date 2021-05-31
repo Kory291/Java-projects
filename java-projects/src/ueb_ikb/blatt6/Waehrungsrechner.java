@@ -1,66 +1,57 @@
-package ueb_ikb.blatt6;
-
 public class Waehrungsrechner {
     public static void main(String[] args) {
         DM d = new DM(10);
         System.out.println(d.addieren(d));
 
         Euro e = new Euro(5);
-        System.out.println(e.addieren(d));
+        System.out.println(e.addieren(new DM(10)));
         System.out.println("---");
+        
     }
 }
 
 class Waehrung {
     
-    double betrag;
+    private double betrag;
+    private final double wechselkursToEuro;
+    private final String kuerzel;
 
-    Waehrung(double betrag) {
+    Waehrung(double betrag, double wechselkurs, String kuerzel) {
         this.betrag = betrag;
+        this.wechselkursToEuro = wechselkurs;
+        this.kuerzel = kuerzel;
     }
 
     double addieren(Waehrung w) {
-        return 0;
+        betrag = betrag * wechselkursToEuro;
+        betrag += w.betrag * w.wechselkursToEuro;
+        betrag = betrag * (1/wechselkursToEuro);
+        return betrag;
     }
+
+    @Override
+    public String toString() {
+        return betrag + " " + kuerzel;
+    }
+
 }
 
 class Euro extends Waehrung {
 
-    final static double wechselkursToEuro = 1;
-    final static double wechselkursFromEuro = 1/wechselkursToEuro;
-
     Euro(double betrag) {
-        super(betrag);
+        super(betrag, 1, "EUR");
     }
-
-    double addieren(Waehrung w) {
-        return betrag += w.betrag;
-    }
-
-    double getWechselkurs() {
-        return wechselkursToEuro;
-    }
-
 }
 
 class DM extends Waehrung {
-
-    final static double wechselkursToEuro = 2;
-    final static double wechselkursFromEuro = 1/wechselkursToEuro;
-
     DM(double betrag) {
-        super(betrag);
+        super(betrag, 0.511292, "DM");
     }
-
 }
 
-class Franc extends Waehrung {
+class Franc extends Waehrung {   
 
-    final static double wechselkursToEuro = 3;
-    final static double wechselkursFromEuro = 1/wechselkursToEuro;
-    
     Franc(double betrag) {
-        super(betrag);
+        super(betrag, 0.152449, "Franc");
     }
-
 }
