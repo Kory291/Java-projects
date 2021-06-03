@@ -1,8 +1,10 @@
 {
     "java.project.sourcePaths": [
+        "src/ueb_ikb/blatt6",
         "src/ueb_ikb/blatt4",
         "src/pol/pol",
+        "src/gen",
         "src/abs",
-        "src/ueb_ikb/blatt6"
+        "src/func"
     ]
 }
