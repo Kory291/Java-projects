@@ -4,7 +4,8 @@
         "src/ueb_ikb/blatt4",
         "src/pol/pol",
         "src/gen",
+        "src/func",
         "src/abs",
-        "src/func"
+        "src/exc"
     ]
 }

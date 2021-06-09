@@ -31,6 +31,10 @@ public class Rechteck implements Comparable<Rechteck> {
         return hoehe * breite;
     }
 
+    public boolean istQuadrat() {
+        return breite == hoehe;
+    }
+
     @Override
     public String toString() {
         return "Rechteck " + hoehe + " x " + breite;
@@ -104,7 +108,11 @@ public class Rechteck implements Comparable<Rechteck> {
             .sum();
 
         List<Rechteck> w = rechtecke.stream() 
-            .filter(a -> a.getHoehe() == a.getBreite())
+            //.filter(a -> a.getHoehe() == a.getBreite())
+            //.filter(a -> a.istQuadrat())
+            .filter(Rechteck::istQuadrat)
+            .peek(System.out::println)
             .collect(Collectors.toList());
+        System.out.println(w);
     }
 }
