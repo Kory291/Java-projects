@@ -2,8 +2,8 @@ public class KontoMain {
     public static void main(String[] args) {
         //Konto k1 = new Konto(100, 1, "Schäfer", "Martin", "Klaus");
         
-        Girokonto g1 = new Girokonto(100, 2, "Schäfer", "Lukas");
-        g1.
+        //Girokonto g1 = new Girokonto(100, 2, "Schäfer", "Lukas", "Martin");
+        System.out.println("--");
     }
 }
 
