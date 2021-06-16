@@ -1,31 +1,28 @@
 package ueb_ikb.blatt7;
+
+//package ueb_ikb.blatt7;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
-import java.util.Comparator;
 
 public class Spielkarten {
     public static void main(String[] args) {
         Kartenstapel skat = new Kartenstapel(Blatt.Skat);
-        // skat.mischen();
-        // System.out.println("--------------------");
+        skat.mischen();
+        System.out.printf("Gemischt: %s\n\n", skat);
         skat.sortieren();
-        // System.out.println(skat);
-        // System.out.println("--------------------");
-        // skat.mischen();
-        System.out.println(skat);
-        System.out.println("--------------------");
-        skat.karteAusteilen(2,2,2);
-        System.out.println(skat);
-        System.out.println("--------------------");
-        skat.karteAusteilen(20,2,2);
-        System.out.println(skat);
-        System.out.println("--------------------");
-        skat.karteAusteilen(8,8,8);
-        System.out.println(skat);
+        System.out.printf("Sortiert: %s\n\n", skat);
+
         
+        // austeilen
+        int spieler = 0;
+        for(Spielkarte[] hand: skat.austeilen(4,4,4)) {
+            System.out.printf("Spieler #%d erhält %s\n", ++spieler, Arrays.toString(hand));
+        }
     }
 }
 
+// Lösung ist nicht schön, weil ich so jede Karte einzeln einpflegen muss, gerade bei Eigenschaften, die doppelt sind ist das unschön
 class Gewichtung {
     public int getGewichtung(String gesucht, String typ) {
         switch(gesucht) {
@@ -91,7 +88,6 @@ enum Blatt {
     }
 }
 
-
 class Spielkarte implements Comparable<Spielkarte> {
 
     private final String typ;
@@ -120,6 +116,11 @@ class Spielkarte implements Comparable<Spielkarte> {
     public String getWert() {
         return wert;
     }
+
+    @Override
+    public String toString() {
+        return farbe + " " + wert;
+    }
 }
 
 class Kartenstapel {
@@ -140,15 +141,11 @@ class Kartenstapel {
         return antwort;
     }
 
-    public Spielkarte[] karteAusteilen(int... spieler) {
-        if(spieler.length * spieler[0] > kartenstapel.size()) return null;
-        for(int i = 0; i < spieler.length - 1; i++) {
-            if(spieler[i] != spieler[i+1]) return null;
-        }
-        Spielkarte[] antwort = new Spielkarte[spieler[0] * spieler.length];
+    public Spielkarte[][] austeilen(int... spieler) {
+        Spielkarte[][] antwort = new Spielkarte[spieler.length][spieler[0]];
         for(int i = 0; i < spieler.length; i++) {
             for(int k = 0; k < spieler[0]; k++) {
-                antwort[i + k] = kartenstapel.remove(0);
+                antwort[i][k] = kartenstapel.remove(0);
             }
         }
         return antwort;
