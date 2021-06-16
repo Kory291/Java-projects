@@ -1,6 +1,4 @@
 package ueb_ikb.blatt7;
-
-//package ueb_ikb.blatt7;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -142,6 +140,11 @@ class Kartenstapel {
     }
 
     public Spielkarte[][] austeilen(int... spieler) {
+        int summe = 0;
+        for(int i: spieler) {
+            summe += i;
+        }
+        if(summe > kartenstapel.size()) return null;
         Spielkarte[][] antwort = new Spielkarte[spieler.length][spieler[0]];
         for(int i = 0; i < spieler.length; i++) {
             for(int k = 0; k < spieler[0]; k++) {

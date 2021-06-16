@@ -55,7 +55,7 @@ class Spielfeld {
         for(int i = 0; i < 4 * spielfeld.length; i++) {
             for(int k = 0; k < 4 * spielfeld.length; k++) {
                 if(k % 4 == 0 && i % 4 == 0) {
-                    String zeile = "" + spielfeld[i][k] + ""
+                    String zeile = "" + spielfeld[i][k] + "";
                 }
             }
         }
