@@ -64,7 +64,7 @@ public class TicTacToe {
             System.out.printf("\n%s Spieler setzt auf", ersterSpieler ? "1." : "2.");
             String setzenAuf = sc.nextLine();
 
-            setzen (setzenAuf, ersterSpieler ? 'X' : 'O');
+            setzen(setzenAuf, ersterSpieler ? 'X' : 'O');
             spielfeldAnzeigen();
             anzahlZuege++;
             ersterSpieler = !ersterSpieler;
