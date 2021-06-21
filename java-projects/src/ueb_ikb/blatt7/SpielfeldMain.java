@@ -9,9 +9,11 @@ public class SpielfeldMain {
         // sf1.setzen(new SchachFigur("B", "weiß"), "B4", "B8");
         // System.out.println(sf1);
 
-        Schach schachSpiel1 = new Schach("Lukas", "Kory");
-        schachSpiel1.spielen();
+        // Schach schachSpiel1 = new Schach("Lukas", "Jona");
+        // schachSpiel1.spielen();
 
+        TicTacToe tic = new TicTacToe("Lukas", "Jona");
+        tic.spielen();
         // TicTacToeSpielfeld tf1 = new TicTacToeSpielfeld();
         // tf1.spielfeld[1][1] = new TicTacToeFigur("X");
         // System.out.println(tf1); 
@@ -102,6 +104,7 @@ class TicTacToeSpieler extends Spieler {
         super(name);
     }
 
+
     public String[] getZug(Spielfeld spielfeld) {
         Scanner sc = new Scanner(System.in);
         String[] antwort = new String[2];
@@ -166,6 +169,10 @@ class Spielfeld {
         int y = spielfeld.length - 1 - feld.charAt(1) + '1';
         return spielfeld[x][y];
     }
+
+    public Spielfigur getlesen(int x, int y) {
+        return spielfeld[x][y];
+    } 
 }
 
 class SchachSpielfeld extends Spielfeld {
@@ -230,8 +237,11 @@ class Schach {
             System.out.println(sfeld);
             System.out.printf("Am Zug ist: %s\n", spieler[amZug]);
             zug = spieler[amZug].getZug(sfeld);
-            sfeld.setzen(new SchachFigur(sfeld.getlesen(zug[0]).getSymbol(), ((SchachFigur) sfeld.getlesen(zug[0])).getFarbe()), zug[1], zug[0]);
-            // System.out.println(sfeld);
+            if(sfeld.getlesen(zug[0]).getSymbol() != " ") {
+                sfeld.setzen(new SchachFigur(sfeld.getlesen(zug[0]).getSymbol(), ((SchachFigur) sfeld.getlesen(zug[0])).getFarbe()), zug[1], zug[0]);
+            } else {
+                System.out.println("Keine Figur ausgewählt");
+            }
             // gucken, ob noch beide Könige auf dem Feld sind --> Spielende
             for(int i = 65; i < 65 + sfeld.spielfeld.length; i++) {
                 for(int k = 1; k < sfeld.spielfeld.length + 1; k++) {
@@ -246,7 +256,67 @@ class Schach {
                     }
                 }
             }
-        } while ((koenigSchwarz == true) && (koenigWeiß == true));
+        } while ((koenigSchwarz && koenigWeiß) == true);
         System.out.println("Sieger ist: " + spieler[amZug].toString());
+    }
+}
+
+class TicTacToe {
+    
+    TicTacToeSpieler spieler[] = new TicTacToeSpieler[2];
+    TicTacToeSpielfeld tfeld = new TicTacToeSpielfeld();
+    TicTacToeFigur figuren[] = new TicTacToeFigur[2];
+
+    TicTacToe(String nameSp1, String nameSp2) {
+        this.spieler[0] = new TicTacToeSpieler(nameSp1);
+        this.spieler[1] = new TicTacToeSpieler(nameSp2);
+        this.figuren[0] = new TicTacToeFigur("X");
+        this.figuren[1] = new TicTacToeFigur("O");
+    }
+
+    private String siegerBestimmen(TicTacToeSpielfeld tfeld) {
+
+        // Spalten
+        for (int x=0; x<3; x++) {
+            if ((tfeld.getlesen(x, 0).getSymbol() != " ") && (tfeld.getlesen(x, 0).getSymbol() == tfeld.getlesen(x, 1).getSymbol()) && (tfeld.getlesen(x, 1).getSymbol() == tfeld.getlesen(x, 2).getSymbol())) {
+                return tfeld.getlesen(x, 0).getSymbol();
+            }
+        }
+
+        // Zeilen
+        for (int y=0; y<3; y++) {
+            if (tfeld.getlesen(0, y).getSymbol() != " " && (tfeld.getlesen(0, y).getSymbol() == tfeld.getlesen(1, y).getSymbol()) && (tfeld.getlesen(1, y).getSymbol() == tfeld.getlesen(2, y).getSymbol())) {
+                return tfeld.getlesen(0, y).getSymbol();
+            }
+        }
+
+        // NW-SO-Diagonale
+        if ((tfeld.getlesen(0, 0).getSymbol() != " ") && (tfeld.getlesen(0, 0).getSymbol() == tfeld.getlesen(1, 1).getSymbol()) && (tfeld.getlesen(1, 1).getSymbol() == tfeld.getlesen(1, 1).getSymbol())) {
+            return tfeld.getlesen(0, 0).getSymbol();
+        }
+
+        // SW-NO-Diagonale
+        if ((tfeld.getlesen(0, 2).getSymbol() != " ") && (tfeld.getlesen(0, 2).getSymbol() ==tfeld.getlesen(1, 1).getSymbol()) && (tfeld.getlesen(1, 1).getSymbol() == tfeld.getlesen(2, 0).getSymbol())) {
+            return tfeld.getlesen(0, 2).getSymbol();
+        }
+
+        return "-"; // kein Sieger
+    }
+
+    public void spielen() {
+        int zuege = 0;
+        String feld;
+        do{
+            System.out.println(tfeld);
+            feld = spieler[zuege % 2].getZug(tfeld)[1];
+            while(tfeld.getlesen(feld).getSymbol() == "X" || tfeld.getlesen(feld).getSymbol() == "O") {
+                System.out.println("Dort kann nicht gesetzt werden.");
+                feld = spieler[zuege % 2].getZug(tfeld)[1];
+            }
+            tfeld.setzen(figuren[zuege % 2], feld);
+            zuege++;
+        } while((siegerBestimmen(tfeld) == "-") && zuege < 9);
+        System.out.println(tfeld);
+        System.out.printf("Sieger: %s (%s)", spieler[(zuege - 1 )% 2], figuren[(zuege - 1) % 2].getSymbol());
     }
 }
