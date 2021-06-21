@@ -1,0 +1,245 @@
+{
+    // Verwendet IntelliSense zum Ermitteln möglicher Attribute.
+    // Zeigen Sie auf vorhandene Attribute, um die zugehörigen Beschreibungen anzuzeigen.
+    // Weitere Informationen finden Sie unter https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Launch Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Launch App",
+            "request": "launch",
+            "mainClass": "App",
+            "projectName": "Java-projects_c39ca784"
+        },
+        {
+            "type": "java",
+            "name": "Launch Immutable",
+            "request": "launch",
+            "mainClass": "Immutable",
+            "projectName": "Java-projects_c39ca784"
+        },
+        {
+            "type": "java",
+            "name": "Launch Matrix",
+            "request": "launch",
+            "mainClass": "Matrix",
+            "projectName": "Java-projects_c39ca784"
+        },
+        {
+            "type": "java",
+            "name": "Launch Stack_Main",
+            "request": "launch",
+            "mainClass": "Stack_Main",
+            "projectName": "Java-projects_c39ca784"
+        },
+        {
+            "type": "java",
+            "name": "Launch TicTacToe",
+            "request": "launch",
+            "mainClass": "TicTacToe",
+            "projectName": "Java-projects_c39ca784"
+        },
+        {
+            "type": "java",
+            "name": "Launch Spielfeld",
+            "request": "launch",
+            "mainClass": "TicTacToe.Spielfeld",
+            "projectName": "Java-projects_c39ca784"
+        },
+        {
+            "type": "java",
+            "name": "Launch Wuerfel_Kniffel",
+            "request": "launch",
+            "mainClass": "Wuerfel_Kniffel",
+            "projectName": "Java-projects_c39ca784"
+        },
+        {
+            "type": "java",
+            "name": "Launch Fragentest",
+            "request": "launch",
+            "mainClass": "abs.abs.Fragentest",
+            "projectName": "Java-projects_c39ca784"
+        },
+        {
+            "type": "java",
+            "name": "Launch Bank",
+            "request": "launch",
+            "mainClass": "acc.Bank",
+            "projectName": "Java-projects_c39ca784"
+        },
+        {
+            "type": "java",
+            "name": "Launch TicTacToeSpielfeld",
+            "request": "launch",
+            "mainClass": "exc.exc.TicTacToeSpielfeld",
+            "projectName": "Java-projects_c39ca784"
+        },
+        {
+            "type": "java",
+            "name": "Launch Rechteck",
+            "request": "launch",
+            "mainClass": "func.Rechteck",
+            "projectName": "Java-projects_c39ca784"
+        },
+        {
+            "type": "java",
+            "name": "Launch Flasche",
+            "request": "launch",
+            "mainClass": "gen.Flasche",
+            "projectName": "Java-projects_c39ca784"
+        },
+        {
+            "type": "java",
+            "name": "Launch GenerischeFlasche",
+            "request": "launch",
+            "mainClass": "gen.GenerischeFlasche",
+            "projectName": "Java-projects_c39ca784"
+        },
+        {
+            "type": "java",
+            "name": "Launch GenerischeFlaschenKiste",
+            "request": "launch",
+            "mainClass": "gen.GenerischeFlaschenKiste",
+            "projectName": "Java-projects_c39ca784"
+        },
+        {
+            "type": "java",
+            "name": "Launch GenerischeKiste",
+            "request": "launch",
+            "mainClass": "gen.GenerischeKiste",
+            "projectName": "Java-projects_c39ca784"
+        },
+        {
+            "type": "java",
+            "name": "Launch Konto",
+            "request": "launch",
+            "mainClass": "inh.Konto",
+            "projectName": "Java-projects_c39ca784"
+        },
+        {
+            "type": "java",
+            "name": "Launch matrixOperationen",
+            "request": "launch",
+            "mainClass": "matrixOperationen",
+            "projectName": "Java-projects_c39ca784"
+        },
+        {
+            "type": "java",
+            "name": "Launch Beispiele",
+            "request": "launch",
+            "mainClass": "oo.Beispiele",
+            "projectName": "Java-projects_c39ca784"
+        },
+        {
+            "type": "java",
+            "name": "Launch Gleichheit",
+            "request": "launch",
+            "mainClass": "oo.Gleichheit",
+            "projectName": "Java-projects_c39ca784"
+        },
+        {
+            "type": "java",
+            "name": "Launch Hochschule",
+            "request": "launch",
+            "mainClass": "oo.Hochschule",
+            "projectName": "Java-projects_c39ca784"
+        },
+        {
+            "type": "java",
+            "name": "Launch Main_Person_Stack",
+            "request": "launch",
+            "mainClass": "pol.pol.pol.Main_Person_Stack",
+            "projectName": "Java-projects_c39ca784"
+        },
+        {
+            "type": "java",
+            "name": "Launch rationaleZahlen",
+            "request": "launch",
+            "mainClass": "rationaleZahlen",
+            "projectName": "Java-projects_c39ca784"
+        },
+        {
+            "type": "java",
+            "name": "Launch sortieren",
+            "request": "launch",
+            "mainClass": "sortieren",
+            "projectName": "Java-projects_c39ca784"
+        },
+        {
+            "type": "java",
+            "name": "Launch AnzahlZiffern",
+            "request": "launch",
+            "mainClass": "ueb_ikb.AnzahlZiffern",
+            "projectName": "Java-projects_c39ca784"
+        },
+        {
+            "type": "java",
+            "name": "Launch Muenzen",
+            "request": "launch",
+            "mainClass": "ueb_ikb.Muenzen",
+            "projectName": "Java-projects_c39ca784"
+        },
+        {
+            "type": "java",
+            "name": "Launch Palindrom",
+            "request": "launch",
+            "mainClass": "ueb_ikb.Palindrom",
+            "projectName": "Java-projects_c39ca784"
+        },
+        {
+            "type": "java",
+            "name": "Launch UB_2",
+            "request": "launch",
+            "mainClass": "ueb_ikb.UB_2",
+            "projectName": "Java-projects_c39ca784"
+        },
+        {
+            "type": "java",
+            "name": "Launch Rechteck(1)",
+            "request": "launch",
+            "mainClass": "ueb_ikb.blatt3.Rechteck",
+            "projectName": "Java-projects_c39ca784"
+        },
+        {
+            "type": "java",
+            "name": "Launch BachetSpiel",
+            "request": "launch",
+            "mainClass": "ueb_ikb.blatt6.BachetSpiel",
+            "projectName": "Java-projects_c39ca784"
+        },
+        {
+            "type": "java",
+            "name": "Launch KontoMain",
+            "request": "launch",
+            "mainClass": "ueb_ikb.blatt6.KontoMain",
+            "projectName": "Java-projects_c39ca784"
+        },
+        {
+            "type": "java",
+            "name": "Launch Waehrungsrechner",
+            "request": "launch",
+            "mainClass": "ueb_ikb.blatt6.Waehrungsrechner",
+            "projectName": "Java-projects_c39ca784"
+        },
+        {
+            "type": "java",
+            "name": "Launch SpielfeldMain",
+            "request": "launch",
+            "mainClass": "ueb_ikb.blatt7.SpielfeldMain",
+            "projectName": "Java-projects_c39ca784"
+        },
+        {
+            "type": "java",
+            "name": "Launch Spielkarten",
+            "request": "launch",
+            "mainClass": "ueb_ikb.blatt7.Spielkarten",
+            "projectName": "Java-projects_c39ca784"
+        }
+    ]
+}
